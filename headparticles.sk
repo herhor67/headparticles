@@ -1,0 +1,89 @@
+options:
+	komenda: czastki
+	czas: 0.3
+
+every {@czas} seconds:
+	loop all players:
+		{particle.%loop-player%} is "plomien":
+			spawn 2 of particle flame offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "dym":
+			spawn 2 of particle smoke offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "mikst biala":
+			spawn 1 of particle spell offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "nuta":
+			spawn 1 of particle note:1 offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "portal":
+			spawn 5 of particle portal offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "lawa":
+			spawn 1 of particle lava offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "deszcz":
+			spawn 5 of particle splash offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "chmura":
+			spawn 1 of particle cloud offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "slime":
+			spawn 3 of particle slime offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "serce":
+			spawn 1 of particle heart offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "mikst czarna":
+			spawn 1 of particle mob spell offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "krytyczny":
+			spawn 1 of particle magic crit offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "mikst szara":
+			spawn 1 of particle mob spell ambient offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "snieg2":
+			spawn 1 of particle instant spell offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "magia czarownicy":
+			spawn 1 of particle witch magic offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "enchant":
+			spawn 2 of particle enchantment table offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "krople lawy":
+			spawn 1 of particle drip lava offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "krople wody":
+			spawn 1 of particle drip water offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "snieg":
+			spawn 1 of particle snow shovel offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "zly osadnik":
+			spawn 1 of particle angry villager offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "wesoly osadnik":
+			spawn 1 of particle happy villager offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+		else if {particle.%loop-player%} is "eksplozja":
+			spawn 1 of particle explode offset by 0.2, 0.2, 0.2 at location 2 meters above loop-player
+
+command /{@komenda} [<text>]:
+	permission: czasteczki.magia
+	executable by: players
+	trigger:
+		arg is not set:
+			execute player command "/{@komenda} help"
+		arg is "plomien" or "dym" or "mikst biala" or "nuta" or "portal" or "lawa" or "deszcz" or "chmura" or "slime" or "serce" or "mikst czarna" or "mikst szara" or "krytyczny" or "snieg2" or "magia czarownicy" or "enchant" or "krople lawy" or "krople wody" or "snieg" or "wesoly osadnik" or "zly osadnik" or "eksplozja":
+			send "&6Wybrałeś &c%arg%&6! Efekty zaraz się pokażą"
+			set {particle.%player%} to arg
+		else if arg is "off" or "wylacz" or "usun":
+			clear {particle.%player%}
+		else:
+			send "&6Lista cząsteczek nad głową"
+			send "&c1. &6Płomień - &c/{@komenda} plomien"
+			send "&c2. &6Dym - &c/{@komenda} dym"
+			send "&c3. &6Nuta - &c/{@komenda} nuta"
+			send "&c4. &6Portal - &c/{@komenda} portal"
+			send "&c5. &6Lawa  - &c/{@komenda} lawa"
+			send "&c6. &6Deszcz  - &c/{@komenda} deszcz"
+			send "&c7. &6Chmura  - &c/{@komenda} chmura"
+			send "&c8. &6Slime  - &c/{@komenda} slime"
+			send "&c9. &6Serce  - &c/{@komenda} serce"
+			send "&c10. &6Mikstura czarna - &c/{@komenda} mikst czarna"
+			send "&c11. &6Mikstura szara - &c/{@komenda} mikst szara"
+			send "&c12. &6Mikstura biała - &c/{@komenda} mikst biala"
+			send "&c13. &6Śnieg 1 - &c/{@komenda} snieg"
+			send "&c14. &6Śnieg 2 - &c/{@komenda} snieg2"
+			send "&c15. &6Magia czarownicy - &c/{@komenda} magia czarownicy"
+			send "&c16. &6Runy - &c/{@komenda} enchant"
+			send "&c17. &6Krople lawy - &c/{@komenda} krople lawy"
+			send "&c18. &6Krople wody - &c/{@komenda} krople wody"
+			send "&c19. &6Wesoły osadnik - &c/{@komenda} wesoly osadnik"
+			send "&c20. &6Zły osadnik - &c/{@komenda} zly osadnik"
+			send "&c21. &6Eksplozja - &c/{@komenda} eksplozja"
+
+on any movement:
+	block 0.1 meters below player isn't air or water or lava:
+		spawn 1 of particle footstep offset by 0.2, 0, 0.2 at location -0.01 below player
