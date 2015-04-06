@@ -1,4 +1,3 @@
-#hercore headparticles
 options:
 	komenda: czastki
 	czas: 0.3
@@ -84,6 +83,7 @@ command /{@komenda} [<text>]:
 			send "&c19. &6Wesoły osadnik - &c/{@komenda} wesoly osadnik"
 			send "&c20. &6Zły osadnik - &c/{@komenda} zly osadnik"
 			send "&c21. &6Eksplozja - &c/{@komenda} eksplozja"
+			send "&6Aby usunąć cząsteczki wpisz &c/{@komenda} (off|wylacz|usun)"
 
 on any movement:
 	block 0.1 meters below player isn't air or water or lava:
